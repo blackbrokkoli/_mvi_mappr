@@ -21,7 +21,7 @@
 		div.flex-fill.panel-scroll.flex-vert-container
 			.panel-list(ng-if="playerTempObj.playerExists")
 				uib-accordion(close-others="editorPanels.closeOthers")
-					uib-accordion-group(is-open="editorPanels.privatePlayer", ng-if="!playerObj.isDisabled")
+					div(uib-accordion-group is-open="editorPanels.privatePlayer", ng-if="!playerObj.isDisabled")
 						uib-accordion-heading
 							.row.vert-align.border-section.title-style2
 								.col-xs-12
@@ -64,7 +64,7 @@
 											.clearfix
 											button.square-btn.small-btn.h6.panel-btn(type="button", ng-click="editToken()", ng-if="!tokenEditMode") Edit Token
 									.divider
-					uib-accordion-group(is-open="editorPanels.url", ng-if="!playerObj.isDisabled")
+					div(uib-accordion-group is-open="editorPanels.url", ng-if="!playerObj.isDisabled")
 						uib-accordion-heading
 							.row.vert-align
 								.col-xs-12
@@ -97,7 +97,7 @@
 													textarea(readonly="readonly" onclick="this.focus();this.select()" class="form-control" rows="3") &lt;iframe src="{{protocol}}//{{domain}}/play/{{playerObj.playerUrl}}?embed=true" width="500" height="300" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 									.clearfix
 								.divider
-					uib-accordion-group(is-open="editorPanels.snapshots")
+					div(uib-accordion-group is-open="editorPanels.snapshots")
 						uib-accordion-heading
 							.row.vert-align.border-section.title-style2
 								.col-xs-12
@@ -122,7 +122,7 @@
 													//- 	span
 													//- 		i.fa.fa-pencil
 													//.col-sm-1
-					uib-accordion-group(is-open="editorPanels.styles")
+					div(uib-accordion-group is-open="editorPanels.styles")
 						uib-accordion-heading
 							.row.vert-align
 								.col-xs-12
@@ -389,7 +389,7 @@
 									//- 	.col-xs-12
 									//- 		.text-ultralight.text-normal Select from the preset themes - light or dark - to set the color scheme of your buttons and toolbars in your player.
 									//- 	.space
-					uib-accordion-group(is-open="editorPanels.stats")
+					div(uib-accordion-group is-open="editorPanels.stats")
 						uib-accordion-heading
 							.row.vert-align.border-section.title-style2
 								.col-xs-12
@@ -400,7 +400,7 @@
 									.row.vert-align
 										.col-xs-12
 											h6 Views: {{playerObj.metrics.viewCount}}
-					uib-accordion-group(is-open="editorPanels.finalisePlayer")
+					div(uib-accordion-group is-open="editorPanels.finalisePlayer")
 						uib-accordion-heading
 							.row.vert-align
 								.col-xs-12
@@ -416,7 +416,7 @@
 									.row
 										.col-xs-12
 											button.square-btn.small-btn.panel-btn.h6(type="button", ng-click="finalisePlayer();") Finalise
-					uib-accordion-group(is-open="editorPanels.editablePlayer")
+					div(uib-accordion-group is-open="editorPanels.editablePlayer")
 						uib-accordion-heading
 							.row.vert-align
 								.col-xs-12

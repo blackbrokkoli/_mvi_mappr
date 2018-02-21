@@ -125,7 +125,7 @@
                                     h6.title.text-uppercase Miscellaneous
                         .panel-list.flex-fill.panel-scroll.flex-vert-container
                             uib-accordion(close-others="spAccordionStatus.misc.closeOthers")
-                                uib-accordion-group(is-disabled="!mapprSettings.drawNodes", is-open="spAccordionStatus.misc.aggregations")
+                                div(uib-accordion-group is-disabled="!mapprSettings.drawNodes", is-open="spAccordionStatus.misc.aggregations")
                                     uib-accordion-heading
                                         .row.vert-align
                                             .col-xs-12
@@ -144,7 +144,7 @@
                                                             i.fa.fa-info-circle(uib-tooltip="{{opt.tooltip}}" tooltip-placement="right" tooltip-append-to-body="true")
                                                     .col-xs-7
                                                         settings-input(opt="opt", attrs="nodeAttrs" attr-filter="filterNodeAttrs(opt)" color-change="updateColors()" ng-model="mapprSettings[opt.key]")
-                                uib-accordion-group(is-open="spAccordionStatus.misc.stage")
+                                div(uib-accordion-group is-open="spAccordionStatus.misc.stage")
                                     uib-accordion-heading
                                         .row.vert-align
                                             .col-xs-12
@@ -164,7 +164,7 @@
                                                     .col-xs-7
                                                         settings-input(ng-if="::opt.owner != 'project'", opt="opt", attrs="nodeAttrs" attr-filter="filterNodeAttrs(opt)" color-change="updateColors()" ng-model="mapprSettings[opt.key]")
                                                         settings-input(ng-if="::opt.owner == 'project'", opt="opt", ng-model="projSettings[opt.key]", update-project-setting="updateProjectSettings(opt.key)")
-                                uib-accordion-group(is-open="spAccordionStatus.misc.exports")
+                                div(uib-accordion-group is-open="spAccordionStatus.misc.exports")
                                     uib-accordion-heading
                                         .row.vert-align
                                             .col-xs-12
@@ -178,7 +178,7 @@
                                             li.panel-subitem(ng-click="$event.stopPropagation()")
                                                 .row.vert-align
                                                     button.btn.btn-default.btn-xs.pull-left(type="button", ng-click="project.renderSvg()") Render SVG
-                                uib-accordion-group(is-open="spAccordionStatus.misc.extract_data")
+                                div(uib-accordion-group is-open="spAccordionStatus.misc.extract_data")
                                     uib-accordion-heading
                                         .row.vert-align
                                             .col-xs-12
@@ -201,7 +201,7 @@
                                                     button.btn.btn-default.btn-xs.pull-left(type="button", ng-click="exportClusterUsers()") export users for every cluster
                                                     
 
-                                //- uib-accordion-group(is-open="spAccordionStatus.misc.legend")
+                                //- div(uib-accordion-group is-open="spAccordionStatus.misc.legend")
                                 //-     uib-accordion-heading
                                 //-         .row.vert-align
                                 //-             .col-xs-12
@@ -220,7 +220,7 @@
                                 //-                             i.fa.fa-info-circle(uib-tooltip="{{opt.tooltip}}" tooltip-placement="right" tooltip-append-to-body="true")
                                 //-                     .col-xs-7
                                 //-                         settings-input(opt="opt", attrs="nodeAttrs" attr-filter="filterNodeAttrs(opt)" color-change="updateColors()" ng-model="mapprSettings[opt.key]")
-                                //- uib-accordion-group(is-open="spAccordionStatus.misc.linkMapping")
+                                //- div(uib-accordion-group is-open="spAccordionStatus.misc.linkMapping")
                                 //-     uib-accordion-heading
                                 //-         .row.vert-align
                                 //-             .col-xs-12

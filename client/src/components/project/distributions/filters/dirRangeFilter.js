@@ -34,7 +34,6 @@ function(FilterPanelService, AttrInfoService, SelectorService, BROADCAST_MESSAGE
             filterConfig = FilterPanelService.getFilterForId(attrId),
             attrInfo     = AttrInfoService.getNodeAttrInfoForRG().getForId(attrId),
             binCount     = renderCtrl.getBinCount();
-
         console.assert(attrInfo.isNumeric || attrInfo.isYear, logPrefix + 'attribute should be isNumeric/isYear');
 
         scope.filterRange = filterConfig.state.filterRange
