@@ -46,10 +46,11 @@ function(embedlyService) {
         maxWidth = parseFloat(maxWidth);
 
         //embedly types: photo, video, rich, link, error
-        embedlyService.embed(scope.link.url, maxWidth)
-            .success(function(results) {
-                scope.link.embedlyJson = results;
-            }).error(function() {
+        embedlyService.embed(scope.link.url, maxWidth).then(
+            function success (response) {
+                scope.link.embedlyJson = response.data;
+            },
+            function error() {
                 //just show link
             });
     }

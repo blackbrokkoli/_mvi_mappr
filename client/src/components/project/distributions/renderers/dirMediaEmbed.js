@@ -136,7 +136,8 @@ function($sce, $rootScope, $window, embedlyService, BROADCAST_MESSAGES) {
             scope.media.embedSafe = $sce.trustAsHtml(scope.media.embed);
         } else if(scope.media.url) {
             embedlyService.embed(scope.media.url, renderWidth, autoPlay)
-                .success(function(results) {
+                .then(function success (resp) {
+                    var results = resp.data
                     scope.media.embedlyJson = results;
                     //if has embed
                     if(results.html) {
@@ -147,8 +148,8 @@ function($sce, $rootScope, $window, embedlyService, BROADCAST_MESSAGES) {
                     if(results.type == 'link' && results.thumbnail_width >= renderWidth) {
                         scope.media.fullWidth = true;
                     }
-                })
-                .error(function() {
+                },
+                function error() {
                     // console.debug(logPrefix + 'embedly error: ', err, scope.media);
                     //see if has embed and error using embedly
                     if(scope.media.embed && scope.media.embed.indexOf('iframe') !== -1) {

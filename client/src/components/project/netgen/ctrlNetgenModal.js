@@ -273,7 +273,7 @@ function($scope, $rootScope, $uibModalInstance, $timeout, $q, projFactory, dataG
             $rootScope.$broadcast(BROADCAST_MESSAGES.netgen.finished, {networkId: data.networkId});
 
             // Create default snap for new network(if created from attrs)
-            if(algo.title === "links_FromAttributes" && !$scope.regenerateNetwork) {
+            if(algo.name === "links_FromAttributes" && !$scope.regenerateNetwork) {
                 var x = $rootScope.$on(BROADCAST_MESSAGES.sigma.rendered, function() {
                     console.log("Algo ran successfully. hacking mapprSettings");
                     var rd = dataGraph.getRawDataUnsafe();

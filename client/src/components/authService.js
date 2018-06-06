@@ -187,9 +187,10 @@ function($http, $cookieStore, $location, $q, orgFactory, userFactory, USER_ROLES
         var postData = {
             'password': password
         };
-        return $http.post('/change_password/', postData).success(function(doc) {
-            next(doc);
-        }).error(error);
+        return $http.post('/change_password/', postData)
+        .then(function success(response) {
+            next(response.data);
+        }, error);
     }
 
     function subscribe(email, callback) {

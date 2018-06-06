@@ -50,8 +50,9 @@ function($rootScope, $q, $http, dataService, networkService, $routeParams, projF
                     name: 'athenaJob',
                     taskId: taskId
                 });
-                ioCreate.error(function(data, status) {
-                    console.log('[athenaService] Error in executing algorithm. data : %O, status : %s', data, status);
+                //ioCreate.error(function(data, status)
+                ioCreate.catch(function(response) {
+                    console.log('[athenaService] Error in executing algorithm. data : %O, status : %s', response.data, response.status);
                 });
 
                 var onConnectFn = function() {
@@ -72,8 +73,8 @@ function($rootScope, $q, $http, dataService, networkService, $routeParams, projF
                         return watchTask(taskId, onConnectFn);
                     })
                     .then(function(data) {
-                        console.log('[athenaService]Called algorithm successfully. Got data : %O', data);
-                        console.log('[athenaService]Athena Process id: %s', data.result);
+                        console.log('[athenaService] Called algorithm successfully. Got data : %O', data);
+                        console.log('[athenaService] Athena Process id: %s', data.result);
                         $rootScope.$broadcast(BROADCAST_MESSAGES.network.created);
                         // load network
                         networkService.deCacheNetwork(data.networkId);

@@ -30,7 +30,7 @@ function($scope, $uibModalInstance, Upload, orgFactory, surveyTemplateFactory, u
         $uibModalInstance.dismiss("cancel");
     };
 
-    
+
 
     /*************************************
     ****** Event Listeners/Watches *******
@@ -76,10 +76,12 @@ function($scope, $uibModalInstance, Upload, orgFactory, surveyTemplateFactory, u
                     $scope.progressMaxVal = evt.total;
                     $scope.progressVal = evt.loaded;
                     console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-                }).success(function(data) {
+                })
+                .success(function(data) {
                     // file is uploaded successfully
                     $uibModalInstance.close(data);
-                }).error(function(err){
+                })
+                .error(function(err){
                     $scope.response = err;
                     uiService.log(err);
                 });

@@ -38,10 +38,11 @@ function($q, $http, projFactory) {
 
             $http.post(buildOrgProjVerUrl(proj) + '/di/location', {
                 nodeAttrId : nodeAttrId
-            }).success(function postGenLatLong(data) {
+            }).then(function postGenLatLong(response) {
+                var data = response.data
                 console.log('[dataIngestService.genLatLong] Success! data : %O', data);
-            }).error(function(data, status) {
-                console.log('[dataIngestService.genLatLong]Error in executing. data : %O, status : %s', data, status);
+            }).catch(function(response) {
+                console.log('[dataIngestService.genLatLong]Error in executing. data : %O, status : %s', response.data, response.status);
             });
         });
     }

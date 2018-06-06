@@ -182,10 +182,10 @@ function($q, $http, projFactory) {
 
     function downloadSelection(playerId, postObj, callback){
         return $http.post('/api/players/' + playerId + '/downloadSelection', postObj)
-        .success(function(response) {
-            callback(response);
-        }).error(function(error) {
-            callback(null, error);
+        .then(function(response) {
+            callback(response.data);
+        }).catch(function(response) {
+            callback(null, response);
         });
     }
 

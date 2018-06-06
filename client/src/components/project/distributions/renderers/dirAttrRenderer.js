@@ -215,9 +215,9 @@ function($timeout, FilterPanelService, nodeSelectionService, graphHoverService, 
             } else {
                 cs = graphSelectionService.getSelectedNodes();
             }
-            console.log('cs: ', cs)
+            // console.log('cs: ', cs)
             scope.renderer.nodeValues = _.map(cs, 'attr.' + attrId);
-            console.log('node values: ', scope.renderer.nodeValues)
+            // console.log('node values: ', scope.renderer.nodeValues)
             if(attrs.isGrid == 'true' || attrs.isGrid == true) {
                 scope.renderer.nodeValue = scope.attrToRender.value;
             }
