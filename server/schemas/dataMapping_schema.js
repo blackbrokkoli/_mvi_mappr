@@ -1,5 +1,5 @@
 'use strict';
-var 
+var
     mongoose     = require('mongoose'),
     Schema       = mongoose.Schema;
 
@@ -12,7 +12,7 @@ var DataMapping = new mongoose.Schema({
 	opInfo      : {}, // operation which caused this creation to happen
 	createdAt   : { type: Date, default: Date.now },
 	isDeleted   : { type :Boolean, default : false }
-});
+}, { usePushEach: true });
 
 var dataMappingDb = mongoose.model('DataMapping', DataMapping);
 

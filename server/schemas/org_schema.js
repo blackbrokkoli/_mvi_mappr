@@ -87,7 +87,7 @@ var OrgSchema = new mongoose.Schema({
     }],
     notifications:  {},
     settings: {}
-});
+}, {usePushEach: true });
 
 
 var OrgDB = mongoose.model('Org', OrgSchema);

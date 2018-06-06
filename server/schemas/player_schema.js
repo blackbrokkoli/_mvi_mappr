@@ -64,7 +64,7 @@ var PlayerSchema = new mongoose.Schema({
     dateModified:   Date,
     dateFinalised:  Date,
     cached:         {type: Boolean, default: false}
-});
+}, { usePushEach: true });
 var PlayerDB = mongoose.model('Player', PlayerSchema);
 
 module.exports = PlayerDB;

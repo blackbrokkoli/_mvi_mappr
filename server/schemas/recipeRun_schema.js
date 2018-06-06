@@ -52,7 +52,7 @@ var RecipeRunSchema = new mongoose.Schema({
         id : String
     }],
     players : [{}]
-});
+}, { usePushEach: true });
 
 
 var RecipeRunSchemaDB = mongoose.model('RecipeRun', RecipeRunSchema);

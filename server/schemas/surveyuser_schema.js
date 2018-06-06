@@ -102,7 +102,7 @@ var SurveyUserSchema = new mongoose.Schema({
                         bitMask: {type: Number, default: 2},
                         title: {type: String, default:'user'}
                     }
-});
+}, { usePushEach: true });
 // generating a hash for user password
 SurveyUserSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);

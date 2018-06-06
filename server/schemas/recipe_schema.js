@@ -180,7 +180,7 @@ var RecipeSchema = new mongoose.Schema({
         // if is private is enabled, then access token needs to be given
         access_token : String
     }
-});
+}, {usePushEach: true });
 
 
 var RecipeSchema = mongoose.model('Recipe', RecipeSchema);

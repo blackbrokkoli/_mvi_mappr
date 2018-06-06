@@ -27,7 +27,7 @@ var NetworkRecord = new mongoose.Schema({
 
     createdAt   : { type: Date, default: Date.now },
     modifiedAt : { type: Date, default: Date.now }
-}, { minimize : false });
+}, { minimize : false, usePushEach: true  });
 
 NetworkRecord.set('toJSON', { virtuals: true });
 NetworkRecord.set('toObject', { virtuals: true });

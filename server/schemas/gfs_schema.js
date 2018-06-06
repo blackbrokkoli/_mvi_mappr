@@ -29,7 +29,7 @@ var RawDataSetSchema = new mongoose.Schema({
     columns:    [{
                     colId: String,
                     colName: String,
-                    colType: {type: Number, default: 0} 
+                    colType: {type: Number, default: 0}
                 }],
     data:       [{
                     rowId: String,
@@ -37,7 +37,7 @@ var RawDataSetSchema = new mongoose.Schema({
                 }],
     dateCreated:    {type: Date, default: Date.now},
     dateModified:   Date
-});
+}, { usePushEach: true });
 
 // Not Used
 var DataSetSchema = new mongoose.Schema({
@@ -133,6 +133,6 @@ var DataSetSchema = new mongoose.Schema({
                     }],
     dateCreated:    {type: Date, default: Date.now},
     dateModified:   Date
-});
+}, { usePushEach: true });
 
 module.exports = getGridFStream;

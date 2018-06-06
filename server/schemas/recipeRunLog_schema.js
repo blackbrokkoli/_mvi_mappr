@@ -11,7 +11,7 @@ var RecipeRunLogSchema = new mongoose.Schema({
     isJSON       : { type : Boolean, default : false },
     // is isJSON is true, then msg is stringified json object. otherwise, it is a string
     msg          : String
-});
+}, { usePushEach: true });
 
 
 var RecipeRunLogSchemaDB = mongoose.model('RecipeRunLog', RecipeRunLogSchema);

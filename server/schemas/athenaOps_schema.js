@@ -27,7 +27,8 @@ var AthenaOps = new mongoose.Schema({
 
     createdAt   : { type: Date, default: Date.now }
 }, {
-    capped : { size : 1000000, max : 1000 }
+    capped : { size : 1000000, max : 1000 },
+    usePushEach: true
 });
 
 var AthenaOpsDb = mongoose.model('AthenaOps', AthenaOps);

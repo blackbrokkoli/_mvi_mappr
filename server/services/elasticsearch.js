@@ -173,9 +173,9 @@ module.exports = {
                 return callback(err);
             }
             if (!result) {
-                console.error(logPrefix + "elasticsearch.find : type does not exist");
+                console.error(logPrefix + "elasticsearch.find : type does not exist. given type:" + dsId);
                 return callback({
-                    "error": "type does not exist"
+                    "error": "type does not exist. Given type: " + dsId
                 });
             }
             console.log(logPrefix + "elasticsearch.find : existsType ", result);

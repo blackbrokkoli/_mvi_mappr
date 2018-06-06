@@ -18,7 +18,7 @@ var DatasetRecord = new mongoose.Schema({
 
     createdAt   : { type: Date, default: Date.now },
     modifiedAt : { type: Date, default: Date.now }
-}, { minimize : false });
+}, { minimize : false, usePushEach: true  });
 
 DatasetRecord.set('toJSON', { virtuals: true });
 DatasetRecord.set('toObject', { virtuals: true });

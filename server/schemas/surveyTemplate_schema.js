@@ -219,7 +219,7 @@ var SurveyTemplateSchema = new mongoose.Schema({
     rawDataSetRef:  String,
     dateCreated:    {type: Date, default: Date.now},
     dateModified:   Date
-});
+}, { usePushEach: true });
 var SurveyTemplateDB = mongoose.model('SurveyTemplate', SurveyTemplateSchema);
 
 module.exports = SurveyTemplateDB;

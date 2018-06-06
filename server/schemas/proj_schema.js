@@ -95,7 +95,7 @@ var ProjectSchema = new mongoose.Schema({
     settings: {},
     dateCreated:    {type: Date, default: Date.now},
     dateModified:   Date,
-});
+}, { usePushEach: true });
 var ProjectDB = mongoose.model('Project', ProjectSchema);
 
 module.exports = ProjectDB;

@@ -1,5 +1,5 @@
 'use strict';
-var 
+var
     mongoose     = require('mongoose'),
     Schema       = mongoose.Schema;
 
@@ -10,11 +10,11 @@ var ScriptStore = new mongoose.Schema({
 	orgRef     : { type : Schema.Types.ObjectId, index : true },
 	projectRef : { type : Schema.Types.ObjectId, index : true },
 	userRef    : { type : Schema.Types.ObjectId, index : true },
-	
+
 	name       : { type :String },
 	scriptSrc  : String,
 	lastUsedAt : { type: Date, default: Date.now },
-});
+}, { usePushEach: true });
 
 var ScriptStoreDB = mongoose.model('ScriptStore', ScriptStore);
 
