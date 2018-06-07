@@ -1,8 +1,18 @@
 mappr - a network analysis and visualization platform.
 
+## How to Run
+
+There are 2 ways to run the system
+
+- Via Docker. This is a good way to go if you want to just use the application
+- Running locally. This is the preffered way to develop the system. However, it can, and probably should be dockerised as well.
+
 ## How to run via docker
 
+Make sure you have installed docker.
+
 ### Pre-run setup(Do this if you're running for first time, or if there are any changes to the code)
+
 1) `docker-compose stop` - stops the running services, if any.
 2) `docker-compose build` - build the relevant images. Required if any of the source file changes. It takes awhile so be patient
 
@@ -14,6 +24,34 @@ Note:- This is actually a server running, so don't kill the terminal unless you 
 ### Exit openmappr
 * Press 'Ctrl-C' at the terminal to exit.
 
+## Running it locally
+
+To run it locally, we need 6 things
+
+- Mongo running locally on port 27017. It is the default mongo port.
+- Beanstalkd - http://kr.github.io/beanstalkd/
+- python 2.x for running athena. Refer to the athena [Readme.md](athena/README.md) for details.
+- Node 6 or greater for running the server. Refer to Node Env setup guide section.
+- Sass. Refer to Sass install section.
+- Elasticsearch 2.4. Optional component needed for search.
+
+there are 2 scripts for running dev version of webapp.
+
+- `run_local_mode.sh` - the most common. run the server in local mode
+- `run_test_mode.sh` - runs the server in testing mode. mostly for testing apis and other things.
+
+### Steps
+
+These are the steps needed to get the full system running locally.
+* have mongodb running at 27017 using ` mongod --config /usr/local/etc/mongod.conf & ` (if installed via brew)
+* Have beanstalkd running. `beanstalkd &` (if installed via brew)
+* Run elasticsearch. `elasticsearch &` (if installed via brew)
+* Run athena via `./run_dev_mode.sh`. Ensure virtual environment was created as directed by [Readme.md](athena/README.md)
+* Build webapp
+    * Ensure all packages are installed by doing the steps listed in the Setting up the node environment section.
+    * `grunt` to build webapp. Then do `grunt watch` to watch for source code changes
+* `./run_local_mode.sh` - for running the webapp
+* point your browser to localhost:8080 and login as `user@mappr.io` with password `woot`.
 
 ## Sever-side Organization
 Code is divided into top level modules, each with routes, controllers, models and services. (if needed)
@@ -51,35 +89,14 @@ Code is divided into top level modules, each with routes, controllers, models an
 - routes.js - all routes which have not been ported over.
 - ../server.js - entry point. Ensures node 5 is running.
 
-# Running
-Node 5 or greater needs to be installed. see below section on how to install it.
-## developers
-there are 2 scripts for running dev version
 
-* run_local_mode.sh - the most common. run the server in local mode
-* run_test_mode.sh - runs the server in testing mode. mostly for testing apis and other things.
 
-# NODE 5 guide
+# Setting up Node environment
 
-since we have multiple projects spanning different version of nodes, it is best to use a node version manager
+The best way to setup Node is to use a node version manager. One way to do it is to use nvm.
 
-* remove all global packages
-```
-npm ls -gp --depth=0 | awk -F/node_modules/ '{print $2}' | grep -vE '^(npm)$' | xargs npm -g rm
-```
 
-* remove node -
-depends on how you installed it. if brew, then do
-```
-brew uninstall node
-brew prune
-```
-if not brew follow:
-```
-http://stackoverflow.com/questions/5650169/uninstall-node-js-using-linux-command-line
-```
-
-* install nvm from https://github.com/creationix/nvm. follow the guide. DO not use brew to install it.
+* install nvm from https://github.com/creationix/nvm. follow the guide. Do not use brew to install it.
 
 also, when editing ~/.bashrc, ~/.profile, ~/.zprofile, or ~/.zshrc, use below:
 ```
@@ -91,32 +108,41 @@ also, if using zsh, update ~/.zshenv or ~/.zprofile instead of ~/.zshrc
 
 * install node
 ```
-nvm install 5.0
-nvm install 0.12
-nvm use 5.0
+nvm install 6.0
+nvm use 6.0
 nvm alias default node
 ```
-* set default node
-```
-echo 5 > ~/.nvmrc
-```
+
 * install basic packages
 ```
 npm install -g yo bower grunt-cli
 ```
 
+* install packages
+```
+npm install
+bower install
+```
+* enter `grunt` to build the webapp. if developing, use `grunt watch` after that to watch for changes.
+
+* Run `./run_local_mode.sh` to run the webapp.
+
 # Sass
+
 Sass and Compass need to be installed in order for sass to compile to css.
 
 * make sure ruby is installed first (by default on macs)
 
 * install sass
+*
 ```
 gem install sass
 ```
+
 [Sass install](http://sass-lang.com/install)
 
 * install Compass
+
 ```
 gem install compass
 ```
