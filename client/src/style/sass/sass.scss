@@ -2,19 +2,21 @@
 //bootstrap
 @import 'common/app-vars';
 @import 'common/app-mixins';
-@import '../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap';
+// KOLJA: commented out bootstrap
+// @import '../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap';
 //compass
 @import 'compass/css3';
+// KOLJA: more commenting out
 
-@import 'plugins/bootstrap-notify';
-@import 'plugins/bootstrap-slider';
+// @import 'plugins/bootstrap-notify';
+// @import 'plugins/bootstrap-slider';
 @import 'plugins/leaflet';
 @import 'plugins/loading-bar';
 @import 'plugins/responsive-tables';
 @import 'plugins/slider';
 @import 'plugins/sparkline';
 @import 'plugins/switch';
-@import 'plugins/toastr';
+// @import 'plugins/toastr';
 
 @import 'common/axes';
 @import 'common/modal';

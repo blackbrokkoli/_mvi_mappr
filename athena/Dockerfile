@@ -1,4 +1,5 @@
-FROM python:2.7.14-jessie
+# FROM python:2.7.14-jessie
+FROM python:2
 
 RUN mkdir -p /usr/src/mappr/athena
 WORKDIR /usr/src/mappr/athena

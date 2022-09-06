@@ -81,7 +81,7 @@ COPY *.sh /usr/src/mappr/
 
 
 RUN npm install -g grunt-cli
-RUN grunt
+RUN grunt --force
 
 RUN chmod +x ./run_docker_mode.sh && \
 	chmod +x ./wait-for-it.sh
